@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?> <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.backend.data.user.UserMapper">
+    <!-- 每一行就是一个包装好的语句 -->
+    <!-- <select id="querySchoolById" resultType="org.lanqiao.entity.School" parameterType="int">
+        SELECT * FROM school WHERE id = #{schid}
+    </select> -->
+<!--    private String nickName;-->
+<!--    private String avatarUrl;-->
+<!--    private String gender;-->
+<!--    private String userId;-->
+<!--    private String province;-->
+<!--    private String country;-->
+<!--    private String city;-->
+    <insert id="addUser" parameterType="com.example.backend.po.UserPO" keyProperty="user_id">
+        INSERT INTO user(user_id, country, province, city, gender, nick_name, avatar_url)
+        VALUES (#{userId},#{country}, #{province}, #{city}, #{gender}, #{nickName}, #{avatarUrl})
+    </insert>
+
+    <update id="updateUser" parameterType="com.example.backend.po.UserPO">
+        UPDATE user SET country = #{country}, province = #{province}, city=#{city},
+                        gender = #{gender}, nick_name = #{nickName}, avatar_url = #{avatarUrl} WHERE user_id = #{userId}
+    </update>
+    
+    <select id="getUserInfoById" resultType="com.example.backend.po.UserPO">
+        SELECT * FROM user where user_id = #{userId}
+    </select>
+
+</mapper>

@@ -2,12 +2,12 @@ package com.example.backend.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.example.backend.bl.UserService;
+import com.example.backend.bl.user.UserService;
+import com.example.backend.po.UserPO;
 import com.example.backend.utils.HttpClientUtil;
 import com.example.backend.vo.ResponseVO;
 import com.example.backend.vo.UserRequestVO;
 import com.example.backend.vo.UserVO;
-import com.example.backend.vo.WxLoginResultVO;
 import com.example.backend.wxInfo.UserConstantInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,16 +19,9 @@ import java.util.Map;
 @RequestMapping("/api/user")
 public class UserApi {
 
-//    @Autowired
+    @Autowired
     private UserService userService;
 
-//    private String nickName;
-//    private String avatarUrl;
-//    private String gender;
-//    private String openid;
-//    private String province;
-//    private String country;
-//    private String code;
     @PostMapping("/login")
     public ResponseVO login(@RequestBody UserRequestVO userRequestVO) {
 
@@ -42,25 +35,30 @@ public class UserApi {
 
         String wxLoginResultString = HttpClientUtil.doGet(UserConstantInterface.WX_LOGIN_URL, param);
         JSONObject wxLoginResult = JSON.parseObject(wxLoginResultString);
+        System.out.println(wxLoginResult);
+        if (wxLoginResult.get("errcode") != null) {
+            return ResponseVO.buildFailure("请求失败: " + wxLoginResult.get("errcode"));
+        }
+
         String session_key = wxLoginResult.get("session_key").toString();
         String openid = wxLoginResult.get("openid").toString();
+        userRequestVO.setOpenid(openid);
+        System.out.println(openid);
+        // openid 是本小程序判断用户的唯一id
+        // 根据openid来判断是否已经注册
+        UserVO user = userService.getUserByOpenid(openid);
 
-//        // openid 是本小程序判断用户的唯一id
-//        // 根据openid来判断是否已经注册
-//        UserVO user = userService.getUserByOpenid(openid);
-//
-//        // 若未注册，则可以添加到数据库 可以一并得到一些用户信息
-//        // avatar_url, nickname, gender
-//        if (user != null) {
-//
-//        } else {
-//            UserVO userToInsert = new UserVO(userRequestVO);
-//            System.out.println("Insert User " + userToInsert);
-//            Boolean insertSucc = userService.insertUser(userToInsert);
-//            if (!insertSucc) {
-//                return ResponseVO.buildFailure("服务器错误");
-//            }
-//        }
+        if (user != null) {
+            userService.updateUser(new UserVO(userRequestVO));
+            System.out.println("Update user" + userRequestVO);
+        } else {
+            UserVO userToInsert = new UserVO(userRequestVO);
+            System.out.println("Insert User " + userToInsert);
+            Boolean insertSucc = userService.insertUser(userToInsert);
+            if (!insertSucc) {
+                return ResponseVO.buildFailure("服务器错误");
+            }
+        }
 
         // 封装后返回
         Map<String, String> result = new HashMap<>();

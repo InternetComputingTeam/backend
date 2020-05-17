@@ -1,14 +1,30 @@
-package com.example.backend.vo;
+package com.example.backend.po;
 
-public class UserRequestVO {
+import com.example.backend.vo.UserVO;
+
+public class UserPO {
     private String nickName;
     private String avatarUrl;
     private String gender;
-    private String openid;
+    private String userId;
     private String province;
     private String country;
     private String city;
-    private String code;
+
+    public UserPO() {
+    }
+
+
+    public UserPO(UserVO userVO) {
+        this.userId = userVO.getOpenid();
+        this.nickName = userVO.getNickName();
+        this.avatarUrl = userVO.getAvatarUrl();
+        this.gender = userVO.getGender();
+        this.province = userVO.getProvince();
+        this.city = userVO.getCity();
+        this.country = userVO.getCountry();
+    }
+
 
     public String getCity() {
         return city;
@@ -42,12 +58,12 @@ public class UserRequestVO {
         this.gender = gender;
     }
 
-    public String getOpenid() {
-        return openid;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setOpenid(String openid) {
-        this.openid = openid;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getProvince() {
@@ -64,27 +80,5 @@ public class UserRequestVO {
 
     public void setCountry(String country) {
         this.country = country;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    @Override
-    public String toString() {
-        return "UserRequestVO{" +
-                "nickName='" + nickName + '\'' +
-                ", avatarUrl='" + avatarUrl + '\'' +
-                ", gender='" + gender + '\'' +
-                ", openid='" + openid + '\'' +
-                ", province='" + province + '\'' +
-                ", country='" + country + '\'' +
-                ", city='" + city + '\'' +
-                ", code='" + code + '\'' +
-                '}';
     }
 }

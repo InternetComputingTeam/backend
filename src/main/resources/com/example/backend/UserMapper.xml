@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?> <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.backend.data.user.UserMapper">
-    <!-- 每一行就是一个包装好的语句 -->
-    <!-- <select id="querySchoolById" resultType="org.lanqiao.entity.School" parameterType="int">
-        SELECT * FROM school WHERE id = #{schid}
-    </select> -->
-</mapper>

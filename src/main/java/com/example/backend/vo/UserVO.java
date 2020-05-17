@@ -1,5 +1,7 @@
 package com.example.backend.vo;
 
+import com.example.backend.po.UserPO;
+
 public class UserVO {
     private String nickName;
     private String avatarUrl;
@@ -7,6 +9,7 @@ public class UserVO {
     private String openid;
     private String province;
     private String country;
+    private String city;
 
     public UserVO() {
     }
@@ -18,8 +21,26 @@ public class UserVO {
         this.openid = userRequestVO.getOpenid();
         this.province = userRequestVO.getProvince();
         this.country = userRequestVO.getCountry();
+        this.city = userRequestVO.getCity();
     }
 
+    public UserVO (UserPO userPO) {
+        this.openid = userPO.getUserId();
+        this.nickName = userPO.getNickName();
+        this.gender = userPO.getGender();
+        this.province = userPO.getProvince();
+        this.country = userPO.getCountry();
+        this.city = userPO.getCity();
+    }
+
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
 
 
     public String getNickName() {

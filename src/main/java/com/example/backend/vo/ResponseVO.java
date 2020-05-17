@@ -10,7 +10,7 @@ public class ResponseVO {
     /**
      * 返回的提示
      */
-    private boolean message;
+    private String message;
 
     /**
      * 内容
@@ -34,11 +34,9 @@ public class ResponseVO {
     public static ResponseVO buildFailure(String message) {
         ResponseVO responseVO = new ResponseVO();
         responseVO.setSuccess(false);
+        responseVO.setMessage(message);
         return responseVO;
     }
-
-
-
 
     public boolean isSuccess() {
         return success;
@@ -48,11 +46,11 @@ public class ResponseVO {
         this.success = success;
     }
 
-    public boolean isMessage() {
+    public String getMessage() {
         return message;
     }
 
-    public void setMessage(boolean message) {
+    public void setMessage(String message) {
         this.message = message;
     }
 
