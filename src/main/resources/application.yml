@@ -13,5 +13,7 @@ spring:
     time-zone: GMT+8
 
 mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
   mapper-locations: classpath:dataImpl/*/*Mapper.xml
 

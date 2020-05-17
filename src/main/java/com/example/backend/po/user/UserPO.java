@@ -1,4 +1,4 @@
-package com.example.backend.po;
+package com.example.backend.po.user;
 
 import com.example.backend.vo.UserVO;
 

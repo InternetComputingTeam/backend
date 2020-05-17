@@ -1,6 +1,6 @@
 package com.example.backend.data.user;
 
-import com.example.backend.po.UserPO;
+import com.example.backend.po.user.UserPO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;

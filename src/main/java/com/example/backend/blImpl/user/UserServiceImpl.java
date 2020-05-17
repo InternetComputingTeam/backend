@@ -2,7 +2,7 @@ package com.example.backend.blImpl.user;
 
 import com.example.backend.bl.user.UserService;
 import com.example.backend.data.user.UserMapper;
-import com.example.backend.po.UserPO;
+import com.example.backend.po.user.UserPO;
 import com.example.backend.vo.UserVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

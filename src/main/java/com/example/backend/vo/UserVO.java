@@ -1,6 +1,6 @@
 package com.example.backend.vo;
 
-import com.example.backend.po.UserPO;
+import com.example.backend.po.user.UserPO;
 
 public class UserVO {
     private String nickName;
