@@ -16,6 +16,7 @@ public class UserServiceImpl implements UserService {
     public UserVO getUserByOpenid(String openid) {
         UserPO userInfoById = userMapper.getUserInfoById(openid);
         if (userInfoById == null) return null;
+        //else return userInfoById;
         else return new UserVO(userInfoById);
     }
 

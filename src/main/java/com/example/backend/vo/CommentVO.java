@@ -1,19 +1,20 @@
-package com.example.backend.po.comment;
+package com.example.backend.vo;
 
-import com.example.backend.vo.CommentVO;
+import com.example.backend.po.comment.CommentPO;
 
 import java.util.Date;
 
-public class CommentPO {
+public class CommentVO {
     private int commentId;
     private String userId;
     private Date commentTime;
-    public CommentPO(CommentVO commentVO){
-        this.commentId=commentVO.getCommentId();
-        this.userId=commentVO.getUserId();
-        this.commentTime=commentVO.getCommentTime();
+    public CommentVO(CommentPO commentPO){
+        this.commentId=commentPO.getCommentId();
+        this.userId=commentPO.getUserId();
+        this.commentTime=commentPO.getCommentTime();
     }
-    public CommentPO(){}
+    public CommentVO(){}
+
     public int getCommentId() {
         return commentId;
     }
@@ -37,4 +38,5 @@ public class CommentPO {
     public void setCommentTime(Date commentTime) {
         this.commentTime = commentTime;
     }
+
 }

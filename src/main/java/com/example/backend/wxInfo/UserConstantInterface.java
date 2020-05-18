@@ -1,6 +1,6 @@
 package com.example.backend.wxInfo;
 
-public interface UserConstantInterface {
+public interface                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         UserConstantInterface {
     // 请求的网址
     public static final String WX_LOGIN_URL = "https://api.weixin.qq.com/sns/jscode2session";
 

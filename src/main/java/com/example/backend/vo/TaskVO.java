@@ -1,10 +1,12 @@
-package com.example.backend.po.task;
+package com.example.backend.vo;
 
-import com.example.backend.vo.TaskVO;
+import com.example.backend.po.task.TaskPO;
 
 import java.util.Date;
 
-public class TaskPO {
+public class TaskVO {
+
+
     private int taskId;
     private String userId;
     private String title;
@@ -13,17 +15,22 @@ public class TaskPO {
     private int priority;
     private String detail;
     private int status;
-    public TaskPO(TaskVO taskVO){
-        this.taskId=taskVO.getTaskId();
-        this.userId=taskVO.getUserId();
-        this.title=taskVO.getTitle();
-        this.startTime=taskVO.getStartTime();
-        this.endTime=taskVO.getEndTime();
-        this.priority=taskVO.getPriority();
-        this.detail=taskVO.getDetail();
-        this.status=taskVO.getStatus();
+
+    public TaskVO(){
+
     }
-    public TaskPO(){}
+    public TaskVO(TaskPO taskPO){
+        this.taskId=taskPO.getTaskId();
+        this.userId=taskPO.getUserId();
+        this.title=taskPO.getTitle();
+        this.startTime=taskPO.getStartTime();
+        this.endTime=taskPO.getEndTime();
+        this.priority=taskPO.getPriority();
+        this.detail=taskPO.getDetail();
+        this.status=taskPO.getStatus();
+    }
+
+
     public int getTaskId() {
         return taskId;
     }
