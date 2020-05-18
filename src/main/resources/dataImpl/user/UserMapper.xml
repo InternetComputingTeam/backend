@@ -3,8 +3,8 @@
 <mapper namespace="com.example.backend.data.user.UserMapper">
 
     <insert id="addUser" parameterType="com.example.backend.po.user.UserPO" keyProperty="user_id">
-        INSERT INTO user(user_id, country, province, city, gender, nick_name, avatar_url)
-        VALUES (#{userId},#{country}, #{province}, #{city}, #{gender}, #{nickName}, #{avatarUrl})
+        INSERT INTO user(user_id, country, province, city, gender, nick_name, avatar_url, score)
+        VALUES (#{userId},#{country}, #{province}, #{city}, #{gender}, #{nickName}, #{avatarUrl}, 0)
     </insert>
 
     <update id="updateUser" parameterType="com.example.backend.po.user.UserPO">
@@ -15,5 +15,9 @@
     <select id="getUserInfoById" resultType="com.example.backend.po.user.UserPO">
         SELECT * FROM user where user_id = #{userId}
     </select>
+
+    <update id="updateScore" parameterType="com.example.backend.po.user.UserPO">
+        UPDATE user SET score = #{score} WHERE user_id = #{userId}
+    </update>
 
 </mapper>

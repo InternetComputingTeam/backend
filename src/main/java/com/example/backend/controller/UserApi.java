@@ -53,6 +53,7 @@ public class UserApi {
             System.out.println("Update user" + userRequestVO);
         } else {
             UserVO userToInsert = new UserVO(userRequestVO);
+            userToInsert.setScore(0);
             System.out.println("Insert User " + userToInsert);
             Boolean insertSucc = userService.insertUser(userToInsert);
             if (!insertSucc) {
@@ -83,5 +84,11 @@ public class UserApi {
         else return ResponseVO.buildFailure("请求错误");
     }
     //TODO insert好像登陆里面有了
+
+    @GetMapping("/{id}/userInfo/score/{val}")
+    public ResponseVO updateScore(@PathVariable String id, @PathVariable int val) {
+        if (userService.updateScore(id, val)) return ResponseVO.buildSuccess();
+        return ResponseVO.buildFailure("更新错误");
+    }
 
 }

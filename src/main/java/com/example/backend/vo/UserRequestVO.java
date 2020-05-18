@@ -9,6 +9,7 @@ public class UserRequestVO {
     private String country;
     private String city;
     private String code;
+    private int score;
 
     public String getCity() {
         return city;
@@ -72,6 +73,14 @@ public class UserRequestVO {
 
     public void setCode(String code) {
         this.code = code;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
     }
 
     @Override

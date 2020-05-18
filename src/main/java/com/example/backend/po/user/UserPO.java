@@ -10,6 +10,7 @@ public class UserPO {
     private String province;
     private String country;
     private String city;
+    private int score;
 
     public UserPO() {
     }
@@ -23,6 +24,7 @@ public class UserPO {
         this.province = userVO.getProvince();
         this.city = userVO.getCity();
         this.country = userVO.getCountry();
+        this.score = userVO.getScore();
     }
 
 
@@ -80,5 +82,13 @@ public class UserPO {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
     }
 }

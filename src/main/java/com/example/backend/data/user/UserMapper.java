@@ -12,5 +12,6 @@ public interface UserMapper {
     int addUser(UserPO user);
     int updateUser(UserPO user);
     UserPO getUserInfoById(@Param("userId") String userId);
+    int updateScore(UserPO user);
 
 }

@@ -10,6 +10,7 @@ public class UserVO {
     private String province;
     private String country;
     private String city;
+    private int score;
 
     public UserVO() {
     }
@@ -22,6 +23,7 @@ public class UserVO {
         this.province = userRequestVO.getProvince();
         this.country = userRequestVO.getCountry();
         this.city = userRequestVO.getCity();
+        this.score = userRequestVO.getScore();
     }
 
     public UserVO (UserPO userPO) {
@@ -31,6 +33,7 @@ public class UserVO {
         this.province = userPO.getProvince();
         this.country = userPO.getCountry();
         this.city = userPO.getCity();
+        this.score = userPO.getScore();
     }
 
 
@@ -101,5 +104,13 @@ public class UserVO {
                 ", province='" + province + '\'' +
                 ", country='" + country + '\'' +
                 '}';
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
     }
 }
