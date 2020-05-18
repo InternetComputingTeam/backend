@@ -44,6 +44,7 @@ create table comment
     comment_id int auto_increment,
     user_id varchar(256) not null,
     comment_time datetime not null,
+    comment_detail varchar(256),
     constraint comment_pk
         primary key (comment_id),
     constraint comment_user_user_id_fk

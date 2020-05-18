@@ -8,10 +8,13 @@ public class CommentVO {
     private int commentId;
     private String userId;
     private Date commentTime;
+    private String commentDetail;
+
     public CommentVO(CommentPO commentPO){
         this.commentId=commentPO.getCommentId();
         this.userId=commentPO.getUserId();
         this.commentTime=commentPO.getCommentTime();
+        this.commentDetail = commentPO.getCommentDetail();
     }
     public CommentVO(){}
 
@@ -39,4 +42,11 @@ public class CommentVO {
         this.commentTime = commentTime;
     }
 
+    public String getCommentDetail() {
+        return commentDetail;
+    }
+
+    public void setCommentDetail(String commentDetail) {
+        this.commentDetail = commentDetail;
+    }
 }

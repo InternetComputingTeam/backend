@@ -13,6 +13,7 @@ import java.util.List;
 public class CommentServiceImpl implements CommentService {
     @Autowired
     CommentMapper commentMapper;
+
     @Override
     public Boolean addComment(CommentVO commentVO) {
         return commentMapper.addComment(new CommentPO(commentVO))>0;
