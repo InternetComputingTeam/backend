@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/wx_internet?useUnicode=true&characterEncoding=utf8&autoReconnect=true
+    url: jdbc:mysql://localhost:3306/db?useUnicode=true&characterEncoding=utf8&autoReconnect=true&serverTimezone=UTC
     username: root
-    password: root
+    password: aptx4869
     driver-class-name: com.mysql.cj.jdbc.Driver
     max-active: 200
     max-idle: 20

@@ -4,8 +4,8 @@
 
     <insert id="addTask" parameterType="com.example.backend.po.task.TaskPO" useGeneratedKeys="true"
             keyProperty="taskId">
-        INSERT INTO task(user_id, title, start_time, end_time, priority)
-        VALUES (#{userId}, #{title}, #{startTime}, #{endTime}, #{priority})
+        INSERT INTO task(user_id, title, start_time, end_time, priority, detail, status)
+        VALUES (#{userId}, #{title}, #{startTime}, #{endTime}, #{priority}, #{detail}, #{status})
     </insert>
 
     <update id="updateTask" parameterType="com.example.backend.po.task.TaskPO">
@@ -13,7 +13,9 @@
         SET title=#{title},
             start_time = #{startTime},
             end_time=#{endTime},
-            priority = #{priority}
+            priority = #{priority},
+            detail = #{detail},
+            status = #{status}
         WHERE task_id = #{taskId}
     </update>
 
