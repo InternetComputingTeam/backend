@@ -33,7 +33,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public Boolean updateScore(String openid, int valueToUpdate) {
         UserPO userPO = userMapper.getUserInfoById(openid);
-        userPO.setScore(userPO.getScore()+valueToUpdate);
+        userPO.setScore(valueToUpdate);
         return userMapper.updateScore(userPO) > 0;
     }
 
