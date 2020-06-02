@@ -4,7 +4,7 @@
 
     <insert id="addComment" parameterType="com.example.backend.po.comment.CommentPO" useGeneratedKeys="true"
             keyProperty="commentId">
-        INSERT INTO comment(user_id, comment_time, comment_detail) VALUES (#{userId}, #{commentTime}, #{commentDetail})
+        INSERT INTO comment(user_id, comment_time, comment_detail,status) VALUES (#{userId}, #{commentTime}, #{commentDetail},#{status})
     </insert>
 
     <select id="queryCommentsByUserId" resultType="com.example.backend.po.comment.CommentPO">

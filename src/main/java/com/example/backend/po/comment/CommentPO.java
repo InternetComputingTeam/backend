@@ -9,15 +9,23 @@ public class CommentPO {
     private String userId;
     private Date commentTime;
     private String commentDetail;
-
+    private int status;
 
     public CommentPO(CommentVO commentVO){
         this.commentId=commentVO.getCommentId();
         this.userId=commentVO.getUserId();
         this.commentTime=commentVO.getCommentTime();
         this.commentDetail = commentVO.getCommentDetail();
+        this.status = commentVO.getStatus();
     }
 
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
     public String getCommentDetail() {
         return commentDetail;
     }

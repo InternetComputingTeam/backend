@@ -1,4 +1,5 @@
 -- user_table
+
 create table user
 (
     user_id varchar(256) not null,

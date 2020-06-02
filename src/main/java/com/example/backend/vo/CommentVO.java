@@ -9,14 +9,25 @@ public class CommentVO {
     private String userId;
     private Date commentTime;
     private String commentDetail;
+    private int status;
 
     public CommentVO(CommentPO commentPO){
         this.commentId=commentPO.getCommentId();
         this.userId=commentPO.getUserId();
         this.commentTime=commentPO.getCommentTime();
         this.commentDetail = commentPO.getCommentDetail();
+        this.status = commentPO.getStatus();
     }
+
     public CommentVO(){}
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
 
     public int getCommentId() {
         return commentId;
