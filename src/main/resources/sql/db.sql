@@ -5,11 +5,11 @@ create table user
     country varchar(32) null,
     province varchar(32) null,
     city varchar(32) null,
-    gender int not null,
+    gender int null,
     lang varchar(32) null,
-    nick_name varchar(32) not null,
-    avatar_url varchar(256) not null,
-    score int default 0 not null
+    nick_name varchar(32) null,
+    avatar_url varchar(256) null,
+    score int default 0 null
 )
     comment 'user table';
 
