@@ -27,7 +27,7 @@ public class UserApi {
 
         // 向wx服务器GET请求
         Map<String, String> param = new HashMap<>();
-
+        System.out.println("++++++++++++++++++++++++++++++++++++");
         param.put("appid", UserConstantInterface.WX_LOGIN_APPID);
         param.put("secret", UserConstantInterface.WX_LOGIN_SECRET);
         param.put("js_code", userRequestVO.getCode());
@@ -79,6 +79,8 @@ public class UserApi {
     //TODO 不确定这里是不是UserVO ,也不确定返回值类型
     @PostMapping("/{id}/userInfo/update")
     public  ResponseVO updateInfo(@RequestBody UserVO userVO,@PathVariable String id){
+        System.out.println("-----------------------------");
+        System.out.println(userVO);
         boolean flag =  userService.updateUser(userVO);
         if(flag){return ResponseVO.buildSuccess(true);}
         else return ResponseVO.buildFailure("请求错误");
