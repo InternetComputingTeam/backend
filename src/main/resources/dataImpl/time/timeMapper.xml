@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?> <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.backend.data.time.TimeMapper">
+    <insert id="addTimeRecord" parameterType="com.example.backend.po.time.TimePO" useGeneratedKeys="true"
+        keyProperty="id">
+        INSERT INTO time(userId,time_length,create_time)
+        VALUES(#{userId},#{length},#{createTime})
+    </insert>
+
+    <select id="queryLengthOfTheDateOfOneUser" resultType="Integer">
+        select time_length from time where userId=#{userId} and create_time=#{create_date}
+    </select>
+
+
+</mapper>

@@ -17,5 +17,6 @@ public interface GroupMapper {
     Integer unBoundOfUser(@Param("groupId") Integer groupId, @Param("userId") String userId);
     Integer bindToGroup(@Param("groupId") Integer groupId, @Param("userId") String userId);
     List<GroupInfoVO> queryByUser(@Param("userId") String userId);
-
+    List<String> queryUsersByGroupId(@Param("groupId") Integer groupId);
+    String queryGroupManager(@Param("groupId") Integer groupId);
 }

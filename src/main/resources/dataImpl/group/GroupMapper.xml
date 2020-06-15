@@ -33,5 +33,10 @@
             SELECT b.group_id FROM group_binding b WHERE b.user_id = #{userId}
         )
     </select>
-
+    <select id="queryUsersByGroupId" resultType="String">
+        SELECT `group_binding`.user_id from `group_binding` where `group_binding`.group_id=#{groupId}
+    </select>
+    <select id="queryGroupManager" resultType="String">
+        SELECT `group`.manager from `group` where `group`.id=#{groupId}
+    </select>
 </mapper>

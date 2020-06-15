@@ -12,6 +12,7 @@ public interface GroupService {
     Boolean bindToGroup(int groupId, String userId);
     Boolean unBoundFromGroup(int groupId, String userId);
     List<GroupInfoVO> queryByUser(String userId);
-
+    //xzh新增
+    List<String> queryUsersByGroupId(int groupId);
 
 }

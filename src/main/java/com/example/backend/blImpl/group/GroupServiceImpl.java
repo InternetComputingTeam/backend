@@ -14,9 +14,14 @@ public class GroupServiceImpl implements GroupService {
     @Autowired
     GroupMapper groupMapper;
 
+    //xzh修改 使得创建组的时候绑定组长
     @Override
     public Boolean addGroup(GroupInfoVO groupInfoVO) {
-        return groupMapper.addGroup(groupInfoVO) > 0;
+        String manager = groupInfoVO.getManager();
+
+        int row= groupMapper.addGroup(groupInfoVO);
+        bindToGroup(groupInfoVO.getId(),manager);
+        return row>0;
     }
 
     @Override
@@ -29,8 +34,12 @@ public class GroupServiceImpl implements GroupService {
         return groupMapper.bindToGroup(groupId, userId) > 0;
     }
 
+
+    //xzh修改 设置组长不能解绑
     @Override
     public Boolean unBoundFromGroup(int groupId, String userId) {
+        String manager = groupMapper.queryGroupManager(groupId);
+        if(manager.equals(userId))return false;
         groupMapper.unBoundOfUser(groupId, userId);
         return true;
     }
@@ -38,5 +47,11 @@ public class GroupServiceImpl implements GroupService {
     @Override
     public List<GroupInfoVO> queryByUser(String userId) {
         return groupMapper.queryByUser(userId);
+    }
+
+    //xzh新增
+    @Override
+    public List<String> queryUsersByGroupId(int groupId) {
+        return groupMapper.queryUsersByGroupId(groupId);
     }
 }

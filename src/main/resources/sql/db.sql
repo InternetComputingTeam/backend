@@ -36,3 +36,30 @@ CREATE TABLE `comment` (
                            KEY `comment_user_user_id_fk` (`user_id`),
                            CONSTRAINT `comment_user_user_id_fk` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+CREATE TABLE `group` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `manager` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+
+CREATE TABLE `group_binding` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `group_id` int(11) NOT NULL,
+  `user_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+-- auto-generated definition
+create table time
+(
+    id          int auto_increment
+        primary key,
+    userId      int           not null,
+    length      int default 0 not null,
+    create_time varchar(36)   not null
+);
+
+
+
