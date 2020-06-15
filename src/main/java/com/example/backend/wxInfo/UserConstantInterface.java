@@ -9,7 +9,7 @@ public interface                                                                
 
     // 你的密匙
     public static final String WX_LOGIN_SECRET = "ea161a115ca1d9b2cc1eee3a9521169d";
-
+    
     // 固定参数
     public static final String WX_LOGIN_GRANT_TYPE = "authorization_code";
 
