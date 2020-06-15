@@ -14,6 +14,7 @@ public class CommentApi {
 
     @PostMapping("/addComment")//TODO 路由里面要不要加id
     public ResponseVO addComment(@RequestBody CommentVO commentVO){
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         boolean flag = commentService.addComment(commentVO);
         if(flag)return ResponseVO.buildSuccess(true);
         else return ResponseVO.buildFailure("添加失败");

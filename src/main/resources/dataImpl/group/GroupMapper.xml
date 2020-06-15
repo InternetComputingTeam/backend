@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?> <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.backend.data.group.GroupMapper">
+<!--    Integer addGroup(GroupInfoVO groupInfoVO);-->
+<!--    Integer delGroup(GroupInfoVO groupInfoVO);-->
+<!--    Integer unBound(Integer groupId);-->
+<!--    Integer unBoundOfUser(Integer groupId, String userId);-->
+<!--    Integer bindToGroup(Integer groupId, String userId);-->
+<!--    List<GroupInfoVO> queryByUser(String userId);-->
+
+    <insert id="addGroup" useGeneratedKeys="true" parameterType="com.example.backend.vo.GroupInfoVO" keyProperty="id">
+        INSERT INTO `group`(name, manager) VALUES(#{name}, #{manager})
+    </insert>
+
+    <delete id="delGroup" parameterType="com.example.backend.vo.GroupInfoVO">
+        DELETE FROM `group` WHERE id = #{id}
+    </delete>
+    
+    <select id="unBound">
+        DELETE FROM `group_binding` WHERE group_id = #{groupId}
+    </select>
+
+    <select id="unBoundOfUser" resultType="Integer">
+        DELETE FROM `group_binding` WHERE group_id = #{groupId} AND user_id = #{userId}
+    </select>
+
+    <insert id="bindToGroup" >
+        INSERT INTO `group_binding` (group_id, user_id) VALUES (#{groupId}, #{userId})
+    </insert>
+
+    <select id="queryByUser" resultType="com.example.backend.vo.GroupInfoVO">
+        SELECT DISTINCT * FROM `group` WHERE `group`.id IN (
+            SELECT b.group_id FROM group_binding b WHERE b.user_id = #{userId}
+        )
+    </select>
+
+</mapper>

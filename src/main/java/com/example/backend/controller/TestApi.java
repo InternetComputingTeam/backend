@@ -5,13 +5,16 @@ import com.example.backend.data.task.TaskMapper;
 import com.example.backend.po.comment.CommentPO;
 import com.example.backend.po.task.TaskPO;
 import com.example.backend.vo.ResponseVO;
+import com.example.backend.vo.UserVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/test")
@@ -52,7 +55,11 @@ public class TestApi {
 
     @PostMapping("/test4")
     public ResponseVO test4() {
-        List<CommentPO> commentPOS = commentMapper.queryCommentsByUserId("o2IofwQs7aTixz03-p0iV80S_Gg0");
-        return ResponseVO.buildSuccess(commentPOS);
+        ResponseVO responseVO = ResponseVO.buildSuccess();
+        Map<String, Object> map = new HashMap<>();
+        map.put("user", new UserVO());
+        map.put("otherContent", "12345");
+        responseVO.setContent(map);
+        return responseVO;
     }
 }
