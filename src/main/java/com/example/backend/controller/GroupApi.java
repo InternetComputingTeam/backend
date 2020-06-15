@@ -50,7 +50,11 @@ public class GroupApi {
         return ResponseVO.buildSuccess(groupService.queryByUser(userId));
     }
 
-
+    //xzh添加 查询小组成员
+    @GetMapping("/queryUsers/{groupId}")
+    public ResponseVO queryUsers(@PathVariable Integer groupId){
+        return ResponseVO.buildSuccess(groupService.queryUsersByGroupId(groupId));
+    }
 
 
 
