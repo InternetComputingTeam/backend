@@ -4,7 +4,7 @@
 
     <insert id="addUser" parameterType="com.example.backend.po.user.UserPO" keyProperty="user_id">
         INSERT INTO user(user_id, country, province, city, gender, nick_name, avatar_url, score)
-        VALUES (#{userId},#{country}, #{province}, #{city}, #{gender}, #{nickName}, #{avatarUrl}, 0)
+        VALUES (#{userId},#{country}, #{province}, #{city}, #{gender}, #{nickName}, #{avatarUrl}, 50)
     </insert>
 
     <update id="updateUser" parameterType="com.example.backend.po.user.UserPO">

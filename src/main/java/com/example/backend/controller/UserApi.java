@@ -53,7 +53,7 @@ public class UserApi {
             System.out.println("Update user" + userRequestVO);
         } else {
             UserVO userToInsert = new UserVO(userRequestVO);
-            userToInsert.setScore(0);
+            userToInsert.setScore(50);
             System.out.println("Insert User " + userToInsert);
             Boolean insertSucc = userService.insertUser(userToInsert);
             if (!insertSucc) {
