@@ -38,8 +38,11 @@ public class TimeApi {
     public ResponseVO lengthOfTheDateOfGroup(@PathVariable int groupId,@PathVariable String date){
         List<RankVO> rankVOS = timeService.lengthOfTheDateOfGroup(groupId,date);
         return ResponseVO.buildSuccess(rankVOS);
+    }
 
-
+    @GetMapping("/getRecordsOfDateById/{userId}/{date}")
+    public ResponseVO getRecordsOfDateById(@PathVariable String userId,@PathVariable String date){
+        return ResponseVO.buildSuccess(timeService.getRecordsOfDateById(userId,date));
     }
 
 }

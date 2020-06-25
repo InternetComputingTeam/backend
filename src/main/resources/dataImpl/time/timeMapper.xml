@@ -10,6 +10,10 @@
     <select id="queryLengthOfTheDateOfOneUser" resultType="Integer">
         select time_length from time where userId=#{userId} and create_time=#{create_date}
     </select>
+    
+    <select id="getRecordsOfDateById" resultType="com.example.backend.po.time.TimePO">
+        select * from time where userId=#{userId} and create_time=#{create_date}
+    </select>
 
 
 </mapper>

@@ -6,6 +6,7 @@ import com.example.backend.data.time.TimeMapper;
 import com.example.backend.po.time.TimePO;
 import com.example.backend.vo.RankVO;
 import com.example.backend.vo.TimeVO;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -46,5 +47,16 @@ public class TimeServiceImpl implements TimeService {
         }
         return ranks;
 
+    }
+
+    @Override
+    public List<TimeVO> getRecordsOfDateById(String userId, String createDate) {
+        List<TimePO> timePOS = timeMapper.getRecordsOfDateById(userId, createDate);
+        ArrayList<TimeVO> timeVOS = new ArrayList<>();
+        for(TimePO timePO: timePOS) {
+            TimeVO timeVO = new TimeVO(timePO);
+            timeVOS.add(timeVO);
+        }
+        return timeVOS;
     }
 }

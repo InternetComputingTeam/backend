@@ -29,6 +29,7 @@ public class UserVO {
     public UserVO (UserPO userPO) {
         this.openid = userPO.getUserId();
         this.nickName = userPO.getNickName();
+        this.avatarUrl = userPO.getAvatarUrl();
         this.gender = userPO.getGender();
         this.province = userPO.getProvince();
         this.country = userPO.getCountry();
