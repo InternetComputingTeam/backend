@@ -40,9 +40,9 @@ public class TimeApi {
         return ResponseVO.buildSuccess(rankVOS);
     }
 
-    @GetMapping("/getRecordsOfDateById/{userId}/{date}")
-    public ResponseVO getRecordsOfDateById(@PathVariable String userId,@PathVariable String date){
-        return ResponseVO.buildSuccess(timeService.getRecordsOfDateById(userId,date));
+    @GetMapping("/getRecordsById/{userId}")
+    public ResponseVO getRecordsById(@PathVariable String userId){
+        return ResponseVO.buildSuccess(timeService.getRecordsById(userId));
     }
 
 }

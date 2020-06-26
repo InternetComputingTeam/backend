@@ -8,12 +8,19 @@
     </insert>
 
     <select id="queryLengthOfTheDateOfOneUser" resultType="Integer">
-        select time_length from time where userId=#{userId} and create_time=#{create_date}
+        select time_length from time where userId=#{userId} and create_time >= #{create_time0} and create_time &lt;= #{create_time1}
     </select>
     
-    <select id="getRecordsOfDateById" resultType="com.example.backend.po.time.TimePO">
-        select * from time where userId=#{userId} and create_time=#{create_date}
+    <select id="getRecordsById" resultMap="timeMap">
+        select * from time where userId = #{userId}
     </select>
+
+    <resultMap id="timeMap" type="com.example.backend.po.time.TimePO">
+        <id column="id" property="id"></id>
+        <result column="userId" property="userId"></result>
+        <result column="time_length" property="length"></result>
+        <result column="create_time" property="createTime"></result>
+    </resultMap>
 
 
 </mapper>

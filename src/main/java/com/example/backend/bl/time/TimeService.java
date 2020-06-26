@@ -12,5 +12,5 @@ public interface TimeService {
 
     List<RankVO> lengthOfTheDateOfGroup(int groupId, String createDate);
 
-    List<TimeVO> getRecordsOfDateById(String userId,String createDate);
+    List<TimeVO> getRecordsById(String userId);
 }

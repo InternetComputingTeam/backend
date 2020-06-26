@@ -27,7 +27,7 @@ public class TimeServiceImpl implements TimeService {
 
     @Override
     public int lengthOfTheDateOfOneUser(String userId, String createDate) {
-        List<Integer> timeList = timeMapper.queryLengthOfTheDateOfOneUser(userId,createDate);
+        List<Integer> timeList = timeMapper.queryLengthOfTheDateOfOneUser(userId,createDate + " 00:00:00", createDate + " 23:59:59");
         Integer res = 0;
         for(Integer i:timeList){
             res +=i;
@@ -50,8 +50,8 @@ public class TimeServiceImpl implements TimeService {
     }
 
     @Override
-    public List<TimeVO> getRecordsOfDateById(String userId, String createDate) {
-        List<TimePO> timePOS = timeMapper.getRecordsOfDateById(userId, createDate);
+    public List<TimeVO> getRecordsById(String userId) {
+        List<TimePO> timePOS = timeMapper.getRecordsById(userId);
         ArrayList<TimeVO> timeVOS = new ArrayList<>();
         for(TimePO timePO: timePOS) {
             TimeVO timeVO = new TimeVO(timePO);

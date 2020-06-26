@@ -6,7 +6,10 @@ public class TimePO {
     private int id;
     private String userId;
     private int length;
-    private String createTime;//yyyy-mm-dd
+    private String createTime;//yyyy-mm-dd HH:MM:ss
+
+    public TimePO() {}
+
     public TimePO(String userId, int length, String createTime) {
         this.userId = userId;
         this.length = length;

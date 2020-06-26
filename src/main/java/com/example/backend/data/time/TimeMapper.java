@@ -13,9 +13,9 @@ public interface TimeMapper {
 
     int addTimeRecord(TimePO timePO);
 
-    List<Integer> queryLengthOfTheDateOfOneUser(@Param("userId") String userId, @Param("create_date") String create_date);
+    List<Integer> queryLengthOfTheDateOfOneUser(@Param("userId") String userId, @Param("create_time0") String create_time0, @Param("create_time1") String create_time1);
 
-    List<TimePO> getRecordsOfDateById(@Param("userId") String userId, @Param("create_date") String create_date);
+    List<TimePO> getRecordsById(@Param("userId") String userId);
 
 //    int queryLengthOfTheDateOfGroup(@Param("groupId") String groupId,@Param("create_date") String create_date);
 
