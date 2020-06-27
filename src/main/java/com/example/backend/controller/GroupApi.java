@@ -40,7 +40,7 @@ public class GroupApi {
     @PostMapping("/bindToGroup/{userId}/{groupId}")
     public ResponseVO bindToGroup(@PathVariable Integer groupId, @PathVariable String userId) {
         if (groupService.bindToGroup(groupId, userId)) {
-            return ResponseVO.buildSuccess();
+            return ResponseVO.buildSuccess("绑定成功");
         }
         return ResponseVO.buildFailure("绑定失败");
     }
