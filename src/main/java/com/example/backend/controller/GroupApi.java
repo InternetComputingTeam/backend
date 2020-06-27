@@ -42,7 +42,7 @@ public class GroupApi {
         if (groupService.bindToGroup(groupId, userId)) {
             return ResponseVO.buildSuccess("绑定成功");
         }
-        return ResponseVO.buildFailure("绑定失败");
+        return ResponseVO.buildFailure("绑定失败, 用户已绑定或组ID不存在");
     }
 
     @GetMapping("/queryByUser/{userId}")

@@ -31,6 +31,9 @@ public class GroupServiceImpl implements GroupService {
 
     @Override
     public Boolean bindToGroup(int groupId, String userId) {
+        if (queryUsersByGroupId(groupId).contains(userId)) {
+            return false;
+        }
         return groupMapper.bindToGroup(groupId, userId) > 0;
     }
 
